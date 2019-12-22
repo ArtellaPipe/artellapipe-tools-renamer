@@ -1,0 +1,7 @@
+artellapipe.tools.renamer.widgets.items module
+==============================================
+
+.. automodule:: artellapipe.tools.renamer.widgets.items
+   :members:
+   :undoc-members:
+   :show-inheritance:

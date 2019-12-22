@@ -1,0 +1,7 @@
+artellapipe.tools.renamer.core.outlinertree module
+==================================================
+
+.. automodule:: artellapipe.tools.renamer.core.outlinertree
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+artellapipe.tools.renamer.widgets.buttons module
+================================================
+
+.. automodule:: artellapipe.tools.renamer.widgets.buttons
+   :members:
+   :undoc-members:
+   :show-inheritance:

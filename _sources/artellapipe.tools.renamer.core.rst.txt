@@ -1,0 +1,19 @@
+artellapipe.tools.renamer.core package
+======================================
+
+Submodules
+----------
+
+.. toctree::
+
+   artellapipe.tools.renamer.core.buttons
+   artellapipe.tools.renamer.core.outlineritems
+   artellapipe.tools.renamer.core.outlinertree
+
+Module contents
+---------------
+
+.. automodule:: artellapipe.tools.renamer.core
+   :members:
+   :undoc-members:
+   :show-inheritance:
