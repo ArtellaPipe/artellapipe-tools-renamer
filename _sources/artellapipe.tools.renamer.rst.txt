@@ -9,13 +9,6 @@ Subpackages
    artellapipe.tools.renamer.core
    artellapipe.tools.renamer.widgets
 
-Submodules
-----------
-
-.. toctree::
-
-   artellapipe.tools.renamer.renamer
-
 Module contents
 ---------------
 

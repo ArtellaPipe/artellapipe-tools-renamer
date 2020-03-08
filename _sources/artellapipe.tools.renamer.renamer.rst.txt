@@ -1,7 +1,0 @@
-artellapipe.tools.renamer.renamer module
-========================================
-
-.. automodule:: artellapipe.tools.renamer.renamer
-   :members:
-   :undoc-members:
-   :show-inheritance:
