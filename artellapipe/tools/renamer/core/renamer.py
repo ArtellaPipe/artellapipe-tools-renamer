@@ -20,6 +20,8 @@ TOOL_ID = 'artellapipe-tools-renamer'
 # We skip the reloading of this module when launching the tool
 no_reload = True
 
+import tpDcc
+
 
 class RenamerTool(artellapipe.Tool, object):
     def __init__(self, *args, **kwargs):
@@ -62,6 +64,9 @@ class RenamerToolset(artellapipe.Toolset, object):
 
         from artellapipe.tools.renamer.widgets import renamer
 
+        renamer_config = tpDcc.ConfigsMgr().get_config('tpDcc-tools-renamer')
+        renamer_config.data.update(self._config.data)
+
         renamer_widget = renamer.ArtellaRenamerWidget(
-            config=self._config, parent=self)
+            config=renamer_config, parent=self)
         return [renamer_widget]
