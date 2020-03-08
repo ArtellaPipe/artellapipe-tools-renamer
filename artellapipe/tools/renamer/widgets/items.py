@@ -17,16 +17,15 @@ from functools import partial
 from Qt.QtCore import *
 from Qt.QtWidgets import *
 
-import tpDccLib as tp
-from tpPyUtils import decorators
-from tpQtLib.widgets import splitters
+import tpDcc as tp
+from tpDcc.libs.python import decorators
+from tpDcc.libs.qt.widgets import splitters
 
-from artellapipe.utils import resource
 from artellapipe.tools.outliner.core import outlineritems, buttons
 # from artellapipe.tools.shotmanager.apps import shotassembler
 
 if tp.is_maya():
-    from tpMayaLib.core import decorators as maya_decorators
+    from tpDcc.dccs.maya.core import decorators as maya_decorators
     undo_decorator = maya_decorators.undo_chunk
 else:
     undo_decorator = decorators.empty_decorator
@@ -143,7 +142,7 @@ class OutlinerAssetItem(outlineritems.OutlinerItem, object):
 
         if len(added_overrides) > 0:
             menu.addSeparator()
-            save_all_overrides_action = QAction(resource.ResourceManager().icon('save'), 'All', menu)
+            save_all_overrides_action = QAction(tp.ResourcesMgr().icon('save'), 'All', menu)
             save_all_overrides_action.triggered.connect(self._on_save_all_overrides)
             menu.addAction(save_all_overrides_action)
 
@@ -151,13 +150,13 @@ class OutlinerAssetItem(outlineritems.OutlinerItem, object):
 
     def _create_menu(self, menu):
 
-        replace_icon = resource.ResourceManager().icon('replace')
-        delete_icon = resource.ResourceManager().icon('delete')
-        override_add_icon = resource.ResourceManager().icon('override_add')
-        override_delete_icon = resource.ResourceManager().icon('override_delete')
-        override_export_icon = resource.ResourceManager().icon('save')
-        load_shaders_icon = resource.ResourceManager().icon('shading_load')
-        unload_shaders_icon = resource.ResourceManager().icon('shading_unload')
+        replace_icon = tp.ResourcesMgr().icon('replace')
+        delete_icon = tp.ResourcesMgr().icon('delete')
+        override_add_icon = tp.ResourcesMgr().icon('override_add')
+        override_delete_icon = tp.ResourcesMgr().icon('override_delete')
+        override_export_icon = tp.ResourcesMgr().icon('save')
+        load_shaders_icon = tp.ResourcesMgr().icon('shading_load')
+        unload_shaders_icon = tp.ResourcesMgr().icon('shading_unload')
 
         replace_menu = QMenu('Replace by', self)
         replace_menu.setIcon(replace_icon)
@@ -282,13 +281,13 @@ class OutlinerOverrideItem(outlineritems.OutlinerTreeItemWidget, object):
         self._target_lbl = QLabel(self._name.title())
         self._editor_btn = QPushButton('Editor')
         self._editor_btn.setFlat(True)
-        self._editor_btn.setIcon(resource.ResourceManager().icon('editor'))
+        self._editor_btn.setIcon(tp.ResourcesMgr().icon('editor'))
         self._save_btn = QPushButton()
         self._save_btn.setFlat(True)
-        self._save_btn.setIcon(resource.ResourceManager().icon('save'))
+        self._save_btn.setIcon(tp.ResourcesMgr().icon('save'))
         self._delete_btn = QPushButton()
         self._delete_btn.setFlat(True)
-        self._delete_btn.setIcon(resource.ResourceManager().icon('delete'))
+        self._delete_btn.setIcon(tp.ResourcesMgr().icon('delete'))
 
         self._item_layout.addWidget(icon_lbl, 0, 1, 1, 1)
         self._item_layout.addWidget(splitters.get_horizontal_separator_widget(), 0, 2, 1, 1)

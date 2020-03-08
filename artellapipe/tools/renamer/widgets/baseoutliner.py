@@ -17,7 +17,7 @@ from functools import partial
 
 from Qt.QtCore import *
 
-import tpDccLib as tp
+import tpDcc as tp
 
 from artellapipe.tools.outliner.core import outlinertree
 from artellapipe.tools.outliner.widgets import items

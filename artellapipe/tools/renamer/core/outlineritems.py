@@ -16,9 +16,7 @@ from Qt.QtCore import *
 from Qt.QtWidgets import *
 from Qt.QtGui import *
 
-from tpQtLib.core import base
-
-from artellapipe.utils import resource
+from tpDcc.libs.qt.core import base
 
 
 class OutlinerTreeItemWidget(base.BaseWidget, object):
@@ -221,7 +219,7 @@ class OutlinerItem(OutlinerTreeItemWidget, object):
         asset_icon = self._asset_node.get_icon()
         print(asset_icon)
         if not asset_icon or asset_icon.isNull():
-            asset_icon = resource.ResourceManager().icon(self.ICON_NAME)
+            asset_icon = tp.ResourcesMgr().icon(self.ICON_NAME)
         pixmap = asset_icon.pixmap(asset_icon.availableSizes()[-1]).scaled(20, 20, Qt.KeepAspectRatio)
         self._icon_lbl = QLabel()
         self._icon_lbl.setMaximumWidth(18)
