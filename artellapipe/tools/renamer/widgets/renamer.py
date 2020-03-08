@@ -21,7 +21,5 @@ class ArtellaRenamerWidget(renamer.RenamerWidget, object):
 
     NAMING_LIB = naminglib.ArtellaNameLib
 
-    def __init__(self, config, settings, parent):
-        super(ArtellaRenamerWidget, self).__init__(config=config, settings=settings, parent=parent)
-
-        self.auto_rename_widget.edit_btn.setVisible(False)
+    def __init__(self, config, parent):
+        super(ArtellaRenamerWidget, self).__init__(config=config, parent=parent)
