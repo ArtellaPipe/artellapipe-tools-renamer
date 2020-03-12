@@ -1,7 +1,0 @@
-artellapipe.tools.renamer.core.buttons module
-=============================================
-
-.. automodule:: artellapipe.tools.renamer.core.buttons
-   :members:
-   :undoc-members:
-   :show-inheritance:

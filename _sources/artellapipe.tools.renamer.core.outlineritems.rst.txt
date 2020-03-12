@@ -1,7 +1,0 @@
-artellapipe.tools.renamer.core.outlineritems module
-===================================================
-
-.. automodule:: artellapipe.tools.renamer.core.outlineritems
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -6,9 +6,6 @@ Submodules
 
 .. toctree::
 
-   artellapipe.tools.renamer.core.buttons
-   artellapipe.tools.renamer.core.outlineritems
-   artellapipe.tools.renamer.core.outlinertree
    artellapipe.tools.renamer.core.renamer
 
 Module contents
