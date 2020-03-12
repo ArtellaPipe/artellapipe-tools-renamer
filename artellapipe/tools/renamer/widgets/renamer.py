@@ -33,4 +33,3 @@ class ArtellaRenamerWidget(renamer.RenamerWidget, object):
         )
 
         super(ArtellaRenamerWidget, self).__init__(config=config, naming_config=naming_config, parent=parent)
-
