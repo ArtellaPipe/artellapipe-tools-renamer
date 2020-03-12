@@ -12,8 +12,10 @@ __license__ = "MIT"
 __maintainer__ = "Tomas Poveda"
 __email__ = "tpovedatd@gmail.com"
 
+import artellapipe
 from artellapipe.libs.naming.core import naminglib
 
+import tpDcc
 from tpDcc.tools.renamer.widgets import renamer
 
 
@@ -22,4 +24,13 @@ class ArtellaRenamerWidget(renamer.RenamerWidget, object):
     NAMING_LIB = naminglib.ArtellaNameLib
 
     def __init__(self, config, parent):
-        super(ArtellaRenamerWidget, self).__init__(config=config, parent=parent)
+
+        naming_config = tpDcc.ConfigsMgr().get_config(
+            config_name='tpDcc-naming',
+            package_name=artellapipe.project.get_clean_name(),
+            root_package_name='tpDcc',
+            environment=artellapipe.project.get_environment()
+        )
+
+        super(ArtellaRenamerWidget, self).__init__(config=config, naming_config=naming_config, parent=parent)
+
