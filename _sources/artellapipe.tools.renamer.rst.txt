@@ -5,9 +5,9 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    artellapipe.tools.renamer.core
-   artellapipe.tools.renamer.widgets
 
 Module contents
 ---------------
