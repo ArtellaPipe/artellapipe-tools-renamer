@@ -12,24 +12,24 @@ __license__ = "MIT"
 __maintainer__ = "Tomas Poveda"
 __email__ = "tpovedatd@gmail.com"
 
-import artellapipe
+from artellapipe.core import tool
 
 # Defines ID of the tool
 TOOL_ID = 'artellapipe-tools-renamer'
 
-# We skip the reloading of this module when launching the tool
-no_reload = True
-
 import tpDcc
+import artellapipe
+from artellapipe.libs.naming.core import naminglib
+from tpDcc.tools.renamer.core import model, view, controller
 
 
-class RenamerTool(artellapipe.Tool, object):
+class RenamerTool(tool.ArtellaTool, object):
     def __init__(self, *args, **kwargs):
         super(RenamerTool, self).__init__(*args, **kwargs)
 
     @classmethod
     def config_dict(cls, file_name=None):
-        base_tool_config = artellapipe.Tool.config_dict(file_name=file_name)
+        base_tool_config = tool.ArtellaTool.config_dict(file_name=file_name)
         tool_config = {
             'name': 'Renamer',
             'id': 'artellapipe-tools-renamer',
@@ -54,7 +54,7 @@ class RenamerTool(artellapipe.Tool, object):
         return base_tool_config
 
 
-class RenamerToolset(artellapipe.Toolset, object):
+class RenamerToolset(tool.ArtellaToolset, object):
     ID = TOOL_ID
 
     def __init__(self, *args, **kwargs):
@@ -62,11 +62,21 @@ class RenamerToolset(artellapipe.Toolset, object):
 
     def contents(self):
 
-        from artellapipe.tools.renamer.widgets import renamer
-
         renamer_config = tpDcc.ConfigsMgr().get_config('tpDcc-tools-renamer')
         renamer_config.data.update(self._config.data)
 
-        renamer_widget = renamer.ArtellaRenamerWidget(
-            config=renamer_config, parent=self)
-        return [renamer_widget]
+        naming_config = tpDcc.ConfigsMgr().get_config(
+            config_name='tpDcc-naming',
+            package_name=artellapipe.project.get_clean_name(),
+            root_package_name='tpDcc',
+            environment=artellapipe.project.get_environment()
+        )
+        naming_lib = naminglib.ArtellaNameLib
+
+        renamer_model = model.RenamerModel(
+            config=renamer_config, naming_config=naming_config, naming_lib=naming_lib)
+        renamer_controller = controller.RenamerController(client=self._client, model=renamer_model)
+        renamer_view = view.RenamerView(
+            model=renamer_model, controller=renamer_controller, parent=self)
+
+        return [renamer_view]
