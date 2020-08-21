@@ -1,9 +1,7 @@
 # ===================================================================
 # artellapipe-tools-renamer requirements file
 # ===================================================================
-coveralls==1.8.2; python_version>='3.6'
-coveralls==1.9.2; python_version<'3.6'
-artellapipe
 tpDcc-libs-nameit
 tpDcc-tools-nameit
 tpDcc-tools-renamer
+artellapipe
