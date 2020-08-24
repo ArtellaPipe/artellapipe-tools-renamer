@@ -19,7 +19,6 @@ TOOL_ID = 'artellapipe-tools-renamer'
 
 import tpDcc
 import artellapipe
-from artellapipe.libs.naming.core import naminglib
 from tpDcc.tools.renamer.core import model, view, controller
 
 
@@ -71,7 +70,7 @@ class RenamerToolset(tool.ArtellaToolset, object):
             root_package_name='tpDcc',
             environment=artellapipe.project.get_environment()
         )
-        naming_lib = naminglib.ArtellaNameLib
+        naming_lib = artellapipe.NamesMgr().naming_lib
 
         renamer_model = model.RenamerModel(
             config=renamer_config, naming_config=naming_config, naming_lib=naming_lib)
